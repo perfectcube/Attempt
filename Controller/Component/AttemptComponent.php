@@ -10,6 +10,7 @@
  * @package app
  * @subpackage app.controllers.components
  **/
+
 class AttemptComponent extends Component {
 
 	// Called after the Controller::beforeFilter() and before the controller action
@@ -19,19 +20,33 @@ class AttemptComponent extends Component {
 	}
 
 	public function count($action) {
-		return $this->Attempt->count($this->Controller->request->clientIp(), $action);
+		return $this->Attempt->count(
+			$this->Controller->request->clientIp(),
+			$action
+		);
 	}
 
 	public function limit($action, $limit = 5) {
-		return $this->Attempt->limit($this->Controller->request->clientIp(), $action, $limit);
+		return $this->Attempt->limit(
+			$this->Controller->request->clientIp(),
+			$action,
+			$limit
+		);
 	}
 
 	public function fail($action, $duration = '+10 minutes') {
-		return $this->Attempt->fail($this->Controller->request->clientIp(), $action, $duration);
+		return $this->Attempt->fail(
+			$this->Controller->request->clientIp(),
+			$action,
+			$duration
+		);
 	}
 
 	public function reset($action) {
-		return $this->Attempt->reset($this->Controller->request->clientIp(), $action);
+		return $this->Attempt->reset(
+			$this->Controller->request->clientIp(),
+			$action
+		);
 	}
 
 	public function cleanup() {

@@ -1,8 +1,7 @@
 Attempt Component
 =================
 
-A simple component to protect sensitive actions from brute force attacks.
-
+A CakePHP 2.0 or 2.1 plugin that helps to protect sensitive actions from brute force attacks.
 
 API
 ---
