@@ -10,36 +10,43 @@
  * @package app
  * @subpackage app.controllers.components
  **/
-class AttemptComponent extends Object {
 
-	public $components = array(
-		'RequestHandler'
-	);
-
-	// Called before the Controller::beforeFilter().
-	// function initialize(&$controller, $options) {
-	// }
+class AttemptComponent extends Component {
 
 	// Called after the Controller::beforeFilter() and before the controller action
 	public function startup($controller) {
-		$this->controller = $controller;
+		$this->Controller = $controller;
 		$this->Attempt = ClassRegistry::init('Attempt.Attempt');
 	}
 
 	public function count($action) {
-		return $this->Attempt->count($this->RequestHandler->getClientIP(), $action);
+		return $this->Attempt->count(
+			$this->Controller->request->clientIp(),
+			$action
+		);
 	}
 
 	public function limit($action, $limit = 5) {
-		return $this->Attempt->limit($this->RequestHandler->getClientIP(), $action, $limit);
+		return $this->Attempt->limit(
+			$this->Controller->request->clientIp(),
+			$action,
+			$limit
+		);
 	}
 
 	public function fail($action, $duration = '+10 minutes') {
-		return $this->Attempt->fail($this->RequestHandler->getClientIP(), $action, $duration);
+		return $this->Attempt->fail(
+			$this->Controller->request->clientIp(),
+			$action,
+			$duration
+		);
 	}
 
 	public function reset($action) {
-		return $this->Attempt->reset($this->RequestHandler->getClientIP(), $action);
+		return $this->Attempt->reset(
+			$this->Controller->request->clientIp(),
+			$action
+		);
 	}
 
 	public function cleanup() {
