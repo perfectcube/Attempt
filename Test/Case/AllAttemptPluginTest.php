@@ -8,7 +8,7 @@ class AllAttemptPluginTest extends CakeTestSuite {
 	public static function suite() {
 		$suite = new CakeTestSuite('All Attempt Plugin Tests');
 
-		$basePath = CakePlugin::path('Attempt') . DS . 'Test' . DS . 'Case' . DS;
+		$basePath = CakePlugin::path('Attempt') . 'Test' . DS . 'Case' . DS;
 		// controllers
 		$suite->addTestFile($basePath . 'Controller' . DS . 'Component' . DS . 'AttemptComponentTest.php');
 		// models
