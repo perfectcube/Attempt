@@ -25,6 +25,8 @@ Deletes all expired failed attempts from the database. This should be run via Ca
 Schema
 ------
 
+Run `Console/cake schema create --plugin Attempt` or manually make a table:
+
     CREATE TABLE `attempts` (
       `id` char(36) NOT NULL DEFAULT '',
       `ip` varchar(64) DEFAULT NULL,
