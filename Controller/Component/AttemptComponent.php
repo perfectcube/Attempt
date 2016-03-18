@@ -14,7 +14,7 @@
 class AttemptComponent extends Component {
 
 	// Called after the Controller::beforeFilter() and before the controller action
-	public function startup($controller) {
+	public function startup(Controller $controller) {
 		$this->Controller = $controller;
 		$this->Attempt = ClassRegistry::init('Attempt.Attempt');
 	}
